@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add your global styles here */
+/* body {
+  @apply bg-yellow-900;
+} */
+
+h1,
+h4,
+h5,
+h6 {
+  @apply text-blue-900;
+}
+
+h2,
+h3 {
+  @apply text-blue-400;
+}
+
+p {
+  @apply text-gray-400 text-lg;
+}
+
+.button-blue {
+  @apply bg-blue-500 !important;
+}
+
+/* a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  @apply text-gray-600;
+} */
