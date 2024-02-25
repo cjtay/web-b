@@ -3,6 +3,39 @@
 @tailwind utilities;
 
 /* Add your global styles here */
-body {
-  @apply bg-gray-100 text-gray-900;
+/* body {
+  @apply bg-yellow-900;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-blue-900;
 }
+
+p {
+  @apply text-gray-500 text-2xl;
+}
+
+#menu,
+#footer,
+#articles,
+#cta-links {
+  @apply hidden;
+}
+
+.button-blue {
+  @apply bg-blue-800 !important;
+}
+
+/* a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  @apply text-gray-600;
+} */

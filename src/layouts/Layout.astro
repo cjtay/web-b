@@ -19,7 +19,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/nuhslogo.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link href="src/styles/global-web.css" rel="stylesheet">
+    <link href="src/styles/global-web.css" id="dynamic-style" rel="stylesheet">
 	
 </head>
 <body class="flex flex-col min-h-screen"> <!-- Apply Flexbox and min-height here -->
@@ -39,3 +39,30 @@ const { title } = Astro.props;
     </footer>
 </body>
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const theme = params.get('theme'); // Assuming the URL parameter is named 'theme'
+
+    let themeCssPath = 'src/styles/global-web.css'; // Default CSS path
+    if (theme === 'app') {
+        themeCssPath = 'src/styles/app.css';
+    } else if (theme === 'mobile-web') {
+        themeCssPath = 'src/styles/mobile-web.css';
+    }
+
+    const styleElement = document.getElementById('dynamic-style');
+    if(styleElement instanceof HTMLLinkElement) {
+        styleElement.href = themeCssPath;
+    }
+
+    if (theme) {
+    document.querySelectorAll('a').forEach(function(link) {
+        const url = new URL(link.href, window.location.origin);
+        url.searchParams.set('theme', theme); // Append the theme parameter
+        link.href = url.toString();
+    });
+}
+});
+</script>

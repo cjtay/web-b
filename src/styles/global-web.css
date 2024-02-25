@@ -8,13 +8,23 @@
 } */
 
 h1,
-h2,
-h3,
 h4,
 h5,
-h6,
+h6 {
+  @apply text-blue-900;
+}
+
+h2,
+h3 {
+  @apply text-blue-400;
+}
+
 p {
-  @apply text-gray-900;
+  @apply text-gray-400 text-lg;
+}
+
+.button-blue {
+  @apply bg-blue-500 !important;
 }
 
 /* a,
