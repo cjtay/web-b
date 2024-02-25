@@ -20,7 +20,7 @@ h3 {
 }
 
 p {
-  @apply text-gray-400 text-lg;
+  @apply text-red-400 text-lg;
 }
 
 .button-blue {
