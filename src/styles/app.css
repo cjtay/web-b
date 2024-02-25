@@ -13,18 +13,18 @@ h3,
 h4,
 h5,
 h6 {
-  @apply text-blue-900;
+  @apply text-blue-900 !important;
 }
 
 p {
-  @apply text-gray-500 text-2xl;
+  @apply text-2xl text-gray-500 !important;
 }
 
 #menu,
 #footer,
 #articles,
 #cta-links {
-  @apply hidden;
+  @apply hidden !important;
 }
 
 .button-blue {

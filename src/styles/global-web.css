@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 /* Add your global styles here */
 /* body {
@@ -20,7 +20,7 @@ h3 {
 }
 
 p {
-  @apply text-red-400 text-lg;
+  @apply text-lg text-red-900;
 }
 
 .button-blue {
@@ -35,3 +35,4 @@ a:active,
 a:focus {
   @apply text-gray-600;
 } */
+
