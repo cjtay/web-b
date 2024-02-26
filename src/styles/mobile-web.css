@@ -3,25 +3,6 @@
 @tailwind utilities;
 
 /* Add your global styles here */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply text-blue-400 !important;
-}
-
-p {
-  @apply text-xl text-gray-800 !important;
-}
-
-#menu,
-#footer
- {
-  @apply hidden !important;
-}
-
-.button-blue {
-  @apply bg-blue-800 !important;
+body {
+  @apply bg-gray-100 text-gray-900;
 }

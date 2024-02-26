@@ -23,8 +23,11 @@ import "../styles/global-web.css"
     <link rel="icon" type="image/svg+xml" href="/nuhslogo.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link href="src/styles/global-web.css" id="dynamic-style" rel="stylesheet">
-	
+    <!-- <link href="src/styles/global-web.css" id="dynamic-style" rel="stylesheet"> -->
+   
+
+
+    
 </head>
 <body class="flex flex-col min-h-screen"> <!-- Apply Flexbox and min-height here -->
     <header>
@@ -45,7 +48,78 @@ import "../styles/global-web.css"
 </html>
 
 <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const theme = params.get('theme'); // Assuming the URL parameter is named 'theme'
+        if (theme) {
+        document.querySelectorAll('a').forEach(function(link) {
+            const url = new URL(link.href, window.location.origin);
+            url.searchParams.set('theme', theme); // Append or overwrite the 'theme' parameter
+            link.href = url.toString();
+        });
+    }
 
+
+        // Define theme styles as objects or strings
+        const themes = {
+            app: `
+            h1, h2, h3, h4, h5, h6 {
+  color: #1e3a8a !important; /* text-blue-900 */
+}
+
+p {
+  color: #6b7280 !important; /* text-gray-500 */
+  font-size: 1.5rem !important; /* text-2xl, assuming the base font-size is 16px */
+}
+
+#menu, #footer, #articles, #cta-links {
+  display: none !important; /* hidden */
+}
+
+.button-blue {
+  background-color: #1e40af !important; /* bg-blue-800 */
+}
+
+            `,
+            mobile: `
+                body { background-color: #fff; color: #000; }
+                a { color: #007bff; }
+                #menu, #footer {
+  display: none !important; /* hidden */
+}
+                .theme-specific { /* Additional light theme styles */ }
+            `
+        };
+    
+        // Check if the theme parameter exists and is defined in the themes object
+        if (theme && themes[theme]) {
+            const styleElement = document.createElement('style');
+            document.head.appendChild(styleElement);
+            styleElement.textContent = themes[theme];
+        }
+        
+
+        
+    });
+
+    
+    </script>
+
+<!-- <script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const color = params.get('color'); // Get 'color' parameter from the URL
+
+        if (color) {
+            // Apply the color directly to the body's text color
+            // document.body.style.color = color;
+
+            // Optionally, apply the color to specific elements instead
+            document.querySelectorAll('p, h1, h2, h3').forEach(el => {
+                el.style.color = color;
+            });
+        }
+    });
   
     document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
@@ -71,4 +145,6 @@ import "../styles/global-web.css"
     });
 }
 });
-</script>
+</script> -->
+
+

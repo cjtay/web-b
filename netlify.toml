@@ -1,5 +1,1 @@
-# netlify.toml
-[[redirects]]
-  from = "/src/styles/global-web.css"
-  to = "/styles/global-web.css"
-  status = 200
+
