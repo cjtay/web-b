@@ -1,3 +1,12 @@
+---
+const navData =[
+  {label : "Home", href: "/"},
+  {label : "About", href: "/about"},
+  {label : "Content", href: "/content"},
+  {label : "Form", href: "/form"},
+  ]
+---
+
 <nav class="bg-white border-b-8 border-blue-900" id="menu">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 justify-between">
@@ -7,10 +16,14 @@
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-            <a href="/" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-900">Home</a>
+            {
+              navData.map( navItem => <a href={navItem.href} class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-900">{navItem.label}</a>
+              )
+            }
+            <!-- <a href="/" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-900">Home</a>
             <a href="/about" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">About</a>
             <a href="/content" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Content</a>
-            <a href="/form" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Form</a>
+            <a href="/form" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Form</a> -->
             <!-- <a href="/contact" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Contact </a> -->
           </div>
         </div>
