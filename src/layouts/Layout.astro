@@ -25,9 +25,16 @@ import "../styles/global-web.css"
     <title>{title}</title>
     <!-- <link href="src/styles/global-web.css" id="dynamic-style" rel="stylesheet"> -->
    
-
-
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0EDEGM5HZ9" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
     
+      gtag('config', 'G-0EDEGM5HZ9');
+    </script>
+
 </head>
 <body class="flex flex-col min-h-screen"> <!-- Apply Flexbox and min-height here -->
     <header>
