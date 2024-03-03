@@ -1,1 +1,5 @@
 
+[[headers]]
+for = "/*"
+[headers.values]
+Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com;"
