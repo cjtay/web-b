@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-;
+
 ---
 
 <Layout title="NUHS | Content">
@@ -21,7 +21,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
          
             <p class="max-w-2xl mx-auto mt-6 leading-8">Community Health Posts (CHPs) are touch points within your neighbourhood where you can get easy access to health services near your home.<br/><br/>At the CHPs, the community care team from NUHS provides residents with health counselling and education. If you have chronic diseases or conditions such as diabetes, high blood pressure and high cholesterol, we can help you in making better lifestyle choices so you can live better and stay healthy in the community.</p>
-            <div class="flex items-center justify-center mt-10 gap-x-6" id="cta-links">
+            <div class="flex items-center justify-center mt-10 gap-x-6" id="cta-link">
               <a href="/chp.pdf" download="CHP_brochure.pdf" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Download brochure</a>
               <a href="https://www.nuhs.edu.sg/Care-in-the-Community/Staying-Healthy/Pages/Community-Health-Post.aspx" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
             </div>
@@ -84,3 +84,20 @@ import Layout from '../layouts/Layout.astro';
       
 
 </Layout>
+<script is:inline>
+  console.log('script loaded')
+  document.addEventListener('DOMContentLoaded', function() {
+     var links = document.querySelectorAll('#cta-link a');
+     links.forEach(function(link) {
+       link.addEventListener('click', function(event) {
+         event.preventDefault();
+         console.log('link click',this.innerText)
+         gtag('event', 'link_click', {
+           'event_category': 'CTA Links',
+           'event_label': this.innerText, // or use 'event_label': this.innerText for link text
+         });
+         window.location.href = this.href;
+       });
+     });
+  });
+ </script>
