@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const products = [
+  {
+    name: "Accu-Chek Instant Meter ONLY",
+    description: "x Accu-Chek Instant meter (mmol/L), 1x Accu-Chek Softclix Lancing device, 10x Accu-Chek Softclix lancet drum, 2x CR2032 batteries, 1x carry case. Note that Accu-Chek Instant Test strips are NOT included in this set. You will need to purchase Accu-Chek Instant test strips to use this product.",
+    colors: "8 colors",
+    price: "$95",
+    imageSrc: "/pharma/accu.jpeg",
+    imageAlt: "Accu-Chek Instant Meter ONLY"
+  },
+  {
+    name: "Contour Plus One Meter + Contour Plus Test Strips",
+    description: "The CONTOUR®PLUS ONE blood glucose meter offers seamless connection to the CONTOUR®DIABETES app to capture all your blood glucose readings.",
+    colors: "Black",
+    price: "$100",
+    imageSrc: "pharma/contour.jpeg",
+    imageAlt: "Contour Plus One Meter + Contour Plus Test Strips"
+  },
+  {
+    name: "Accu-Chek Instant Test Strips 50/100pcs",
+    description: "The CONTOUR®PLUS ONE blood glucose meter offers seamless connection to the CONTOUR®DIABETES app to capture all your blood glucose readings.",
+    colors: "Black",
+    price: "$14.95",
+    imageSrc: "pharma/accu_stripes2.png",
+    imageAlt: "Contour Plus One Meter + Contour Plus Test Strips"
+  }
+];
+---
+
+<Layout title="NUHS Pharmacy">
+
+    <div class="bg-white">
+        <div class="bg-white px-6 py-12 sm:py-12 lg:px-8">
+            <div class="mx-auto max-w-2xl text-center">
+              <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">NUHS Health Together Wellness Program - Special Offer</h2>
+              <p class="mt-6 text-lg leading-8 text-gray-600">Congratulations on completing your health screening! As part of our wellness initiative, enjoy a special discount on your next blood glucose meter.</p>
+              <p class="mt-2 text-md font-bold leading-8 text-gray-600">Exclusive Offer: 20% off your new blood glucose meter. <br /> Valid until 30 April 2024</p>
+            </div>
+          </div>
+          
+        <div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
+          <h2 class="sr-only">Products</h2>
+          <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
+            {products.map(product => (
+              <div class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
+                <div class="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
+                  <img src={product.imageSrc} alt={product.imageAlt} class="h-full w-full object-cover object-center sm:h-full sm:w-full" />
+                </div>
+                <div class="flex flex-1 flex-col space-y-2 p-4">
+                  <h3 class="text-md font-medium text-gray-900">
+                    <a href="#">
+                      <span aria-hidden="true" class="absolute inset-0"></span>
+                      {product.name}
+                    </a>
+                  </h3>
+                  <p class="text-sm text-gray-500">{product.description}</p>
+                  <div class="flex flex-1 flex-col justify-end">
+                    <p class="text-base font-bold text-gray-900">{product.price}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="bg-white py-12 sm:py-12">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+              <div class="mx-auto max-w-2xl lg:text-center">
+
+                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">How to redeem</p>
+                
+              <div class="mx-auto mt-5 max-w-2xl sm:mt-10 lg:mt-14 lg:max-w-4xl">
+                
+                  <div class="relative pb-6">
+                    <div class="text-base font-semibold leading-7 text-gray-900">
+                      
+                      1. Show this screen at participating pharmacies
+                    </div>
+                    <dd class="mt-2 text-base leading-7 text-gray-600">Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.</dd>
+                  </div>
+                  <div class="relative pb-6">
+                    <dt class="text-base font-semibold leading-7 text-gray-900">
+                      
+                      2. Scan the QR code at the counter. 
+                    </dt>
+                    <dd class="mt-2 text-base leading-7 text-gray-600">Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.</dd>
+                  </div>
+                  <div class=" bg-gray-200  group-hover:opacity-75 max-w-md  mb-10 mx-auto">
+                    <img src="/pharma/qrpharma.jpg" alt="QR" class="h-full w-full object-cover object-center sm:h-full sm:w-full" />
+                  </div>
+                  <div class="relative pb-6 ">
+                    <dt class="text-base font-semibold leading-7 text-gray-900">
+         
+                      3. Enjoy your discount!
+                    </dt>
+                    <dd class="mt-2 text-base leading-7 text-gray-600">Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.</dd>
+                  </div>
+              
+               
+              </div>
+            </div>
+          </div>
+          
+          
+      </div>
+      
+
+</Layout>
+<script is:inline>
+  console.log('script loaded')
+  document.addEventListener('DOMContentLoaded', function() {
+     var links = document.querySelectorAll('#cta-link a');
+     links.forEach(function(link) {
+       link.addEventListener('click', function(event) {
+
+         gtag('event', 'link_click', {
+           'event_category': 'CTA Links',
+           'event_label': this.innerText, // or use 'event_label': this.innerText for link text
+         });
+         window.location.href = this.href;
+       });
+     });
+  });
+ </script>
